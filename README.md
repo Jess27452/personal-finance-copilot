@@ -44,9 +44,3 @@ expenses monthly and applies Holt linear trend exponential smoothing to predict 
 python3 -m pytest -q
 ```
 
-## Resume Bullet
-
-> Built an ML-powered personal finance dashboard that categorizes bank transactions with a hybrid
-> TF-IDF classifier, forecasts monthly spending with time-series smoothing, and generates
-> category-level budget recommendations.
-
