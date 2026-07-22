@@ -1,15 +1,22 @@
 # Personal Finance Copilot
 
-A portfolio-ready ML application that turns bank transaction CSV files into spending insights,
+A hosted full-stack application that turns bank transaction CSV files into private spending insights,
 expense forecasts, and actionable monthly budgets.
+
+The repository now contains two implementations:
+
+- `web/`: the production React application with authenticated users, persistent Cloudflare D1 data, API routes, responsive UI, tests, and deployment configuration.
+- `app.py` and `finance_copilot/`: the original Streamlit and Python analytics prototype.
 
 ## Features
 
-- Upload bank transactions from a CSV file.
+- Sign in to an isolated, persistent personal workspace.
+- Upload and validate bank transactions through a server-side CSV API.
 - Categorize transactions with a hybrid rule-based and scikit-learn text classifier.
 - Forecast future monthly expenses with Holt linear trend time-series smoothing.
 - Generate category-level budget recommendations.
-- Explore interactive Plotly charts and categorized transactions in a Streamlit dashboard.
+- Explore responsive charts, searchable transactions, and budget progress views.
+- Preview the complete product with seeded synthetic data before signing in.
 
 ## Demo
 
@@ -17,10 +24,18 @@ The app includes synthetic sample data, so it can be explored without uploading 
 information.
 
 ```bash
-python3 -m streamlit run app.py
+cd web
+npm install
+npm run dev
 ```
 
-Then open `http://localhost:8501`.
+Then open `http://localhost:3000`.
+
+To run the original analytics prototype instead:
+
+```bash
+python3 -m streamlit run app.py
+```
 
 ## CSV Format
 
@@ -42,5 +57,5 @@ expenses monthly and applies Holt linear trend exponential smoothing to predict 
 
 ```bash
 python3 -m pytest -q
+cd web && npm test
 ```
-
