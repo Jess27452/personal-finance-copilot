@@ -18,10 +18,54 @@ The repository now contains two implementations:
 - Explore responsive charts, searchable transactions, and budget progress views.
 - Preview the complete product with seeded synthetic data before signing in.
 
-## Demo
+## Set-up
 
-The app includes synthetic sample data, so it can be explored without uploading private financial
-information.
+Clone the repository and move into the project folder:
+
+```bash
+git clone https://github.com/Jess27452/personal-finance-copilot.git
+cd personal-finance-copilot
+```
+
+### Python analytics prototype
+
+You need Python 3 installed. Create and activate a virtual environment for your operating system.
+
+#### macOS and Linux
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+```
+
+#### Windows PowerShell
+
+```powershell
+py -m venv .venv
+.\.venv\Scripts\Activate.ps1
+```
+
+#### Windows Command Prompt
+
+```bat
+py -m venv .venv
+.venv\Scripts\activate.bat
+```
+
+With the virtual environment active, install all Python dependencies and start the app:
+
+```bash
+python -m pip install --upgrade pip
+python -m pip install -r requirements.txt
+python -m streamlit run app.py
+```
+
+Open the URL shown by Streamlit. When you are finished, leave the virtual environment with
+`deactivate`.
+
+### Hosted web app
+
+The web app requires Node.js 22.13 or newer and npm:
 
 ```bash
 cd web
@@ -31,11 +75,11 @@ npm run dev
 
 Then open `http://localhost:3000`.
 
-To run the original analytics prototype instead:
+## Demo
 
-```bash
-python3 -m streamlit run app.py
-```
+The app includes synthetic sample data, so it can be explored without uploading private financial
+information. Follow the [Set-up](#set-up) instructions for either implementation, then explore the
+sample dashboard without providing personal financial data.
 
 ## CSV Format
 
@@ -56,6 +100,6 @@ expenses monthly and applies Holt linear trend exponential smoothing to predict 
 ## Tests
 
 ```bash
-python3 -m pytest -q
+python -m pytest -q
 cd web && npm test
 ```
